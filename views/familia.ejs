@@ -1,0 +1,55 @@
+<%- include('templates/cabecera', {tituloWeb: 'Familia'}) %> 
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+    }
+    th, td {
+        min-width: 100px;
+    }
+    table{
+        margin: auto;
+    }
+</style>
+
+<body>
+    <h1>Integrantes de la Familia: </h1>
+    <h2>Tabla construida con un for each</h2>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Mail</th>
+        </tr>
+        <% personas.forEach(person => { %>
+            <tr>
+                <td><%= person.nombre %></td>
+                <td><%= person.apellido %></td>
+                <td><%= person.edad %></td>
+                <td><%= person.mail %></td>
+            </tr>
+        <% }); %>
+    </table>
+    <h2>Tabla construida con un for</h2>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Mail</th>
+        </tr>
+        
+        <% for( let i = 0 ; i < personas.length; i++)  { %>
+            <tr>
+                <td><%= personas[i].nombre %></td>
+                <td><%= personas[i].apellido %></td>
+                <td><%= personas[i].edad %></td>
+                <td><%= personas[i].mail %></td>
+            </tr>
+        <% } %>
+
+    </table>
+</body>
+</html>
